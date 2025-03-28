@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Zapatos Adidas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        .contenedor {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .producto {
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 15px;
+            width: 250px;
+            background-color: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .precio {
+            font-weight: bold;
+            color: #28a745;
+        }
+        button {
+            background-color: #ff9900;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .estrella {
+            color: #ffa500;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Tienda de Zapatos Adidas</h1>
+    <div class="contenedor">
+        
+        <div class="producto">
+            <img src="adidas-samba.jpg" alt="Adidas Samba">
+            <h2>Adidas Samba</h2>
+            <p>Zapatos clásicos para fútbol indoor.</p>
+            <p class="precio">US$72.00</p>
+            <p>
+                <span class="estrella">★★★★★</span> (757)
+            </p>
+            <button>Comprar</button>
+        </div>
+        
+        <div class="producto">
+            <img src="adidas-adilette.jpg" alt="Adidas Adilette">
+            <h2>Adidas Adilette</h2>
+            <p>Sandalias de ducha unisex.</p>
+            <p class="precio">US$27.46</p>
+            <p>
+                <span class="estrella">★★★★☆</span> (874)
+            </p>
+            <button>Comprar</button>
+        </div>
+        
+        <div class="producto">
+            <img src="adidas-swift-run.jpg" alt="Adidas Swift Run">
+            <h2>Adidas Swift Run</h2>
+            <p>Zapatos deportivos ligeros para hombre.</p>
+            <p class="precio">US$40.95</p>
+            <p>
+                <span class="estrella">★★★★☆</span> (3,705)
+            </p>
+            <button>Comprar</button>
+        </div>
+        
+        <div class="producto">
+            <img src="adidas-lite-racer.jpg" alt="Adidas Lite Racer">
+            <h2>Adidas Lite Racer</h2>
+            <p>Tenis cómodos y ligeros para hombre.</p>
+            <p class="precio">US$40.95</p>
+            <p>
+                <span class="estrella">★★★★☆</span> (1,856)
+            </p>
+            <button>Comprar</button>
+        </div>
+        
+        <div class="producto">
+            <img src="adidas-ultraboost.jpg" alt="Adidas Ultraboost">
+            <h2>Adidas Ultraboost 1.0</h2>
+            <p>Zapatos de alto rendimiento con amortiguación Boost.</p>
+            <p class="precio">US$179.81</p>
+            <p>
+                <span class="estrella">★★★★☆</span> (936)
+            </p>
+            <button>Comprar</button>
+        </div>
+        
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Zapatos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <video class="video-fondo" autoplay loop muted>
+        <source src="fondo-video.mp4" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+    </video>
+    
+    <header>
+        <h1>Tienda de Zapatos</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#carrito">Carrito</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="productos">
+        <h2>Nuestros Zapatos</h2>
+        <div class="productos-container">
+            <div class="producto">
+                <img src="zapato1.jpg" alt="Zapato Deportivo">
+                <h3>Zapato Deportivo</h3>
+                <p>$50.00</p>
+                <button onclick="agregarAlCarrito('Zapato Deportivo', 50)">Agregar al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="zapato2.jpg" alt="Zapato Casual">
+                <h3>Zapato Casual</h3>
+                <p>$60.00</p>
+                <button onclick="agregarAlCarrito('Zapato Casual', 60)">Agregar al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="zapato3.jpg" alt="Zapato de Cuero">
+                <h3>Zapato de Cuero</h3>
+                <p>$80.00</p>
+                <button onclick="agregarAlCarrito('Zapato de Cuero', 80)">Agregar al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="zapato4.jpg" alt="Zapato Elegante">
+                <h3>Zapato Elegante</h3>
+                <p>$100.00</p>
+                <button onclick="agregarAlCarrito('Zapato Elegante', 100)">Agregar al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="zapato5.jpg" alt="Zapato de Senderismo">
+                <h3>Zapato de Senderismo</h3>
+                <p>$90.00</p>
+                <button onclick="agregarAlCarrito('Zapato de Senderismo', 90)">Agregar al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="zapato6.jpg" alt="Zapato Running">
+                <h3>Zapato Running</h3>
+                <p>$70.00</p>
+                <button onclick="agregarAlCarrito('Zapato Running', 70)">Agregar al carrito</button>
+            </div>
+        </div>
+    </section>
+    
+    <section id="carrito">
+        <h2>Carrito de Compras</h2>
+        <ul id="lista-carrito"></ul>
+        <p>Total: $<span id="total">0.00</span></p>
+        <button onclick="generarRecibo()">Finalizar Compra</button>
+    </section>
+    
+    <section id="recibo">
+        <h2>Recibo de Compra</h2>
+        <p id="detalle-recibo"></p>
+        <p>Total pagado: $<span id="total-recibo"></span></p>
+        <button onclick="cerrarRecibo()">Cerrar</button>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Tienda de Zapatos</p>
+    </footer>
+</body>
+</html>

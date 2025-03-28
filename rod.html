@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Zapatos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        .video-fondo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .productos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+        }
+        .producto {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .producto:hover {
+            transform: scale(1.05);
+        }
+        .producto img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .producto h3 {
+            margin: 10px 0;
+        }
+        .producto p {
+            color: #666;
+        }
+        .producto button {
+            background: #ff6600;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .producto button:hover {
+            background: #e65c00;
+        }
+        #carrito button {
+            background: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #carrito button:hover {
+            background: #218838;
+        }
+        #recibo {
+            display: none;
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <video class="video-fondo" autoplay loop muted>
+        <source src="fondo-video.mp4" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+    </video>
+    <header>
+        <h1>Tienda de Zapatos</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#carrito">Carrito</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="productos">
+        <h2>Nuestros Productos</h2>
+        <div class="productos-container">
+            <div class="producto">
+                <img src="/home/user/Imágenes/zapato1.jpg" alt="Zapato Deportivo">
+                <h3>Zapato Deportivo</h3>
+                <p>$50.00</p>
+                <button onclick="agregarAlCarrito('Zapato Deportivo', 50)">Agregar al carrito</button>
+
+            </div>
+
+            <div class="producto">
+                <img src="/home/user/Imágenes/zapato2.jpg" alt="Zapato Deportivo">
+                <h3>Zapato Deportivo</h3>
+                <p>$30.00</p>
+                <button onclick="agregarAlCarrito('Zapato Deportivo', 30)">Agregar al carrito</button>
+
+            </div>
+
+            <div class="producto">
+                <img src="/home/user/Imágenes/zapato1.jpg" alt="Zapato Deportivo">
+                <h3>Zapato Deportivo</h3>
+                <p>$40.00</p>
+                <button onclick="agregarAlCarrito('Zapato Deportivo', 40)">Agregar al carrito</button>
+
+            </div>
+
+            <div class="producto">
+                <img src="/home/user/Imágenes/zapato1.jpg" alt="Zapato Deportivo">
+                <h3>Zapato Deportivo</h3>
+                <p>$40.00</p>
+                <button onclick="agregarAlCarrito('Zapato Deportivo', 40)">Agregar al carrito</button>
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </section>
+    
+    <section id="carrito">
+        <h2>Carrito de Compras</h2>
+        <ul id="lista-carrito"></ul>
+        <p>Total: $<span id="total">0.00</span></p>
+        <button onclick="generarRecibo()">Finalizar Compra</button>
+    </section>
+    
+    <section id="recibo">
+        <h2>Recibo de Compra</h2>
+        <p id="detalle-recibo"></p>
+        <p>Total pagado: $<span id="total-recibo"></span></p>
+        <button onclick="cerrarRecibo()">Cerrar</button>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Tienda de Zapatos</p>
+    </footer>
+    
+    <script>
+        let carrito = [];
+        let total = 0;
+
+        function agregarAlCarrito(producto, precio) {
+            carrito.push({ producto, precio });
+            total += precio;
+            document.getElementById('lista-carrito').innerHTML += `<li>${producto} - $${precio}</li>`;
+            document.getElementById('total').innerText = total.toFixed(2);
+        }
+
+        function generarRecibo() {
+            let detalles = carrito.map(item => `${item.producto} - $${item.precio}`).join('<br>');
+            document.getElementById('detalle-recibo').innerHTML = detalles;
+            document.getElementById('total-recibo').innerText = total.toFixed(2);
+            document.getElementById('recibo').style.display = 'block';
+        }
+
+        function cerrarRecibo() {
+            document.getElementById('recibo').style.display = 'none';
+            carrito = [];
+            total = 0;
+            document.getElementById('lista-carrito').innerHTML = '';
+            document.getElementById('total').innerText = '0.00';
+        }
+    </script>
+</body>
+</html>
